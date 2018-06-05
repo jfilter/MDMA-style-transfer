@@ -11,7 +11,7 @@ import secrets
 image_size = 600
 job_num = 5
 url = 'https://mdma.vis.one'
-base_folder = '../universal-style-transfer-pytorch'
+base_folder = '/root/universal-style-transfer-pytorch'
 
 
 def download_image(url, path):
@@ -73,8 +73,11 @@ def main():
 
     # subprocess.Popen("cd {base_folder} && python WCT.py")
     finished_proc = subprocess.run(
-        f"cd {base_folder} && pipenv run python WCT.py --fineSize {image_size}", shell=True, check=True,)
-
+        f"cd {base_folder} && /usr/local/bin/pipenv run python WCT.py --fineSize {image_size}", shell=True, check=True,)
+    if finished_proc.stdout != None:
+        print(finished_proc.stdout)
+    if finished_proc.stderr != None:
+        print(finished_proc.stderr)
     if finished_proc.returncode != 0:
         sys.exit(1)
 

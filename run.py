@@ -8,6 +8,7 @@ from PIL import Image
 
 import secrets
 
+image_size = 600
 job_num = 5
 url = 'https://mdma.vis.one'
 base_folder = '../universal-style-transfer-pytorch'
@@ -72,7 +73,7 @@ def main():
 
     # subprocess.Popen("cd {base_folder} && python WCT.py")
     finished_proc = subprocess.run(
-        f"cd {base_folder} && pipenv run python WCT.py", shell=True, check=True,)
+        f"cd {base_folder} && pipenv run python WCT.py --fineSize {image_size}", shell=True, check=True,)
 
     if finished_proc.returncode != 0:
         sys.exit(1)

@@ -2,6 +2,8 @@
 
 Using <https://github.com/jfilter/universal-style-transfer-pytorch> to transform images.
 
+The main repo is <https://github.com/jfilter/MDMA>.
+
 ## Usage
 
 We use a fresh Ubuntu 16.04. installation and use root for everything. Feel free to change to a proper user.
@@ -32,7 +34,7 @@ cd /root/MDMA-style-transfer && /usr/local/bin/pipenv run python run.py >> /root
 
 ## Caveats
 
-Right now, you can only transform one image in a batch. This is because the style weight has to be set for one go. We allow to set the style weight individual for one image.
+Right now, you can only transform one image in a batch. This is because the style weight has to be set for a batch. We allow to set the style weight individual for each image. Thus, we process only one.
 
 ## License
 

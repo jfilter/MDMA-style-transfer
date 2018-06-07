@@ -9,7 +9,7 @@ from PIL import Image
 import secrets
 
 image_size = 600
-job_num = 5
+job_num = 1  # we can only do one since we want to respect the style weight
 url = 'https://mdma.vis.one'
 base_folder = '/root/universal-style-transfer-pytorch'
 
@@ -68,12 +68,16 @@ def main():
     clean_folder(f'{base_folder}/images/style/')
     clean_folder(f'{base_folder}/samples/')
 
+    # not really necessary anymore
     for i, j in enumerate(jobs):
         process_job(i, j)
 
+    # limit to one image so choose the first one
+    style_weight = jobs[0]['fields']['style_weight']
+
     # subprocess.Popen("cd {base_folder} && python WCT.py")
     finished_proc = subprocess.run(
-        f"cd {base_folder} && /usr/local/bin/pipenv run python WCT.py --fineSize {image_size}", shell=True, check=True,)
+        f"cd {base_folder} && /usr/local/bin/pipenv run python WCT.py --fineSize {image_size} --alpha {style_weight}", shell=True, check=True,)
     if finished_proc.stdout != None:
         print(finished_proc.stdout)
     if finished_proc.stderr != None:

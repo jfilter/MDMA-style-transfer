@@ -11,7 +11,7 @@ We use a fresh Ubuntu 16.04. installation and use root for everything. Feel free
 1.  Install [pipenv](https://docs.pipenv.org/)
 1.  `git clone https://github.com/jfilter/universal-style-transfer-pytorch`
 1.  `cd universal-style-transfer-pytorch && pipenv install && ./setup.sh && cd ..`
-1.  `git clone https://github.com/jfilter/MDMA`
+1.  `git clone https://github.com/jfilter/MDMA-style-transfer && cd MDMA-style-transfer`
 1.  Create a `secrets.py` for with the basic auth credentials to connect to `MDMA`:
 
 ```
